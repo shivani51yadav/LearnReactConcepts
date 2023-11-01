@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-
+// Navbar component
 const Navbar = (props) => {
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
