@@ -1,9 +1,11 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-// Navbar component
+import React from "react";
+import PropTypes from "prop-types";
+// Changes Navbar component
 const Navbar = (props) => {
   return (
-    <nav className="navbar navbar-expand-lg bg-body-tertiary">
+    <nav
+      className={`navbar navbar-expand-lg navbar -$(props.mode) bg-$(props.mode)`}
+    >
       <div className="container-fluid">
         <a className="navbar-brand" href="/">
           {props.title}
@@ -32,7 +34,7 @@ const Navbar = (props) => {
               </a>
             </li>
           </ul>
-          <form className="d-flex" role="search">
+          {/* <form className="d-flex" role="search">
             <input
               className="form-control me-2"
               type="search"
@@ -42,21 +44,36 @@ const Navbar = (props) => {
             <button className="btn btn-outline-success" type="submit">
               Search
             </button>
-          </form>
+          </form> */}
+
+          <div className={`form-check form-switch text-${props.mode==='light'?'dark':'light'}`}>
+            <input
+              className="form-check-input" onClick={props.toggleMode}
+              type="checkbox"
+              role="switch"
+              id="flexSwitchCheckDefault"
+            />
+            <label
+              className="form-check-label"
+              htmlFor="flexSwitchCheckDefault "
+            >
+              Enable Dark mode
+            </label>
+          </div>
         </div>
       </div>
     </nav>
-  )
-}
+  );
+};
 
 Navbar.PropTypes = {
-    title: PropTypes.string,
-    aboutText: PropTypes.string,
-  };
-  
-  Navbar.defaultProps = {
-    title: "Set title here",
-    aboutText: "About text here",
-  };
+  title: PropTypes.string,
+  aboutText: PropTypes.string,
+};
 
-export default Navbar
+Navbar.defaultProps = {
+  title: "Set title here",
+  aboutText: "About text here",
+};
+
+export default Navbar;
