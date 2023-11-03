@@ -7,29 +7,37 @@ const TextForm = (props) => {
         console.log("Uppercaase waas clicked" + text);
         let newText = text.toUpperCase();
         setText(newText);
+        props.showAlert("Converted to uppercase","success");
       };
     
       const handleLowClick = () => {
         console.log("Uppercaase waas clicked" + text);
         let newText = text.toLowerCase();
         setText(newText);
+        props.showAlert("Converted to lowercase","success");
+
       };
     
       const handleClearClick = () => {
         // console.log("Uppercaase waas clicked" + text);
         let newText = "";
         setText(newText);
+        props.showAlert("Text cleared","success");
+
       };
     
       const handleOnChange = (event) => {
         console.log("on change");
         setText(event.target.value);
+        
       };
     
       const handleCopy = () => {
         let text = document.getElementById("myBox");
         text.select();
         navigator.clipboard.writeText(text.value);
+        props.showAlert("Text copied to clipboard","success");
+
       };
     
 
