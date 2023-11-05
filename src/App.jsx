@@ -25,7 +25,7 @@ function App() {
       setMode('dark');
       document.body.style.backgroundColor='#084e87';
       showAlert("Dark mode has been enable","success");
-      document.title='TextUtils - Dark Mode';
+      document.title='TextUtils - Dark Mode'; //changing title dynamically
       // setInterval(()=>{
       //   document.title='Install TextUtils Now';
       // },1500);
