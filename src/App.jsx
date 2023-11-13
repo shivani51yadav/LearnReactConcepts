@@ -26,7 +26,7 @@ function App() {
       setMode("dark");
       document.body.style.backgroundColor = "#084e87";
       showAlert("Dark mode has been enable", "success");
-      document.title = "TextUtils - Dark Mode"; //changing title dynamically
+      // document.title = "TextUtils - Dark Mode"; //changing title dynamically
       // setInterval(()=>{
       //   document.title='Install TextUtils Now';
       // },1500);
@@ -37,42 +37,28 @@ function App() {
       setMode("light");
       document.body.style.backgroundColor = "white";
       showAlert("Light mode has been enable", "success");
-      document.title = "TextUtils - Light Mode";
+      // document.title = "TextUtils - Light Mode";
     }
   };
   return (
     <>
-      <Router>
-        <Navbar title="TextUtils2" mode={mode} toggleMode={toggleMode} />
-        <Alert alert={alert} />
-        <div className="container my-3">
-          {/* <switch>
-          <Route path="/about">
-            <About/>
-          </Route>
-          <Route path="/">
-            <TextForm
-              showAlert={showAlert}
-              heading="Enter the text to analyze"
-              mode={mode}
-            />
-          </Route>
-        </switch> */}
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <TextForm
-                  showAlert={showAlert}
-                  heading="Enter the text to analyze"
-                  mode={mode}
-                />
-              }
-            />
-            <Route path="/about" element={<About />} />
-          </Routes>
-        </div>
-      </Router>
+      <Navbar title="TextUtils2" mode={mode} toggleMode={toggleMode} />
+      <Alert alert={alert} />
+      <div className="my-3 pageLayout">
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <TextForm
+                showAlert={showAlert}
+                heading="Enter the text to analyze"
+                mode={mode}
+              />
+            }
+          />
+          <Route path="/about" element={<About mode={mode}/>} />
+        </Routes>
+      </div>
     </>
   );
 }
